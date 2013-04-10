@@ -1,0 +1,47 @@
+Computer Science
+4 345848534 1 4-4-2000 10-4-2000 15000 4.50
+Ivan Ivanov
+Georgi Georgiev
+Plamen Angelov
+======
+Oreily
+5th avenue, London
+44384208434
+*****************
+Biology
+2 58934673 0 5-11-2009 14-11-2009 21000 7.20
+Georgi Ivanov
+Nikolay Stamatov
+Jack Johnson
+======
+Oreily
+Stanley Str 4, Manchester
+449348344
+*****************
+RandomBook
+5 384837434 1 11-10-1992 11-8-1999 10000 150
+Ivanov
+Petrov
+======
+Manu
+Address
+3782478
+*****************
+Book2
+4 3847834 1 11-5-2005 21-10-2007 1500 15
+Johnson
+Carry
+======
+Oreily
+London
+43885454
+*****************
+Computers, technologies, etc.
+4 34837483 1 25-4-1998 12-8-2004 50000 50
+Georgi Ivanov
+Mihail Stoyanov
+======
+Some manufacturer
+Sample Str. 4, Cityville
+438748374
+*****************
