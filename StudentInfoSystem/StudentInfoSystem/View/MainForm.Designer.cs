@@ -78,6 +78,9 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.openPictureDialog = new System.Windows.Forms.OpenFileDialog();
+            this.pictureButton = new System.Windows.Forms.Button();
+            this.btnVisualOptions = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -156,6 +159,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnVisualOptions);
+            this.tabPage1.Controls.Add(this.pictureButton);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.studentInfoGroupbox);
             this.tabPage1.Controls.Add(this.groupBox3);
@@ -544,6 +549,31 @@
             this.tabPage2.Text = "Оценки";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // openPictureDialog
+            // 
+            this.openPictureDialog.FileName = "openFileDialog1";
+            this.openPictureDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            // 
+            // pictureButton
+            // 
+            this.pictureButton.Location = new System.Drawing.Point(42, 190);
+            this.pictureButton.Name = "pictureButton";
+            this.pictureButton.Size = new System.Drawing.Size(75, 23);
+            this.pictureButton.TabIndex = 8;
+            this.pictureButton.Text = "Upload...";
+            this.pictureButton.UseVisualStyleBackColor = true;
+            this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
+            // 
+            // btnVisualOptions
+            // 
+            this.btnVisualOptions.Location = new System.Drawing.Point(24, 431);
+            this.btnVisualOptions.Name = "btnVisualOptions";
+            this.btnVisualOptions.Size = new System.Drawing.Size(109, 23);
+            this.btnVisualOptions.TabIndex = 9;
+            this.btnVisualOptions.Text = "Visual Options...";
+            this.btnVisualOptions.UseVisualStyleBackColor = true;
+            this.btnVisualOptions.Click += new System.EventHandler(this.btnVisualOptions_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,5 +655,8 @@
         private System.Windows.Forms.ToolStripMenuItem loginLogoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editrToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iewToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openPictureDialog;
+        private System.Windows.Forms.Button pictureButton;
+        private System.Windows.Forms.Button btnVisualOptions;
     }
 }

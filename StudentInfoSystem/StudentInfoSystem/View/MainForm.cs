@@ -59,6 +59,8 @@ namespace StudentInfoSystem.View
             studentInfoGroupbox.Enabled = true;
             pictureGroupbox.Enabled = true;
             loginLogoutToolStripMenuItem.Text = "Logout";
+            pictureButton.Enabled = true;
+            btnVisualOptions.Enabled = true;
         }
 
         private void DisableAllControls()
@@ -67,6 +69,9 @@ namespace StudentInfoSystem.View
             studentInfoGroupbox.Enabled = false;
             pictureGroupbox.Enabled = false;
             loginLogoutToolStripMenuItem.Text = "Login";
+            pictureButton.Enabled = false;
+            studentPic.ImageLocation = "";
+            btnVisualOptions.Enabled = false;
         }
 
         private void Login()
@@ -116,6 +121,37 @@ namespace StudentInfoSystem.View
                 default:
                     break;
             }
+        }
+
+        private void pictureButton_Click(object sender, EventArgs e)
+        {
+            LoadStudentPicture();
+        }
+
+        private void LoadStudentPicture()
+        {
+            if (openPictureDialog.ShowDialog() == DialogResult.OK)
+            {
+                studentPic.ImageLocation = openPictureDialog.FileName;
+            }
+        }
+
+        private void btnVisualOptions_Click(object sender, EventArgs e)
+        {
+            string text = GenerateInfoText();
+            InfoForm infoForm = new InfoForm(text);
+            infoForm.Show();
+        }
+
+        private string GenerateInfoText()
+        {
+            string text = "Уверение\n";
+            text += nameTextBox.Text + " " + middleNameTextbox.Text + " " +
+            lastNameTextbox.Text;
+            text += " е студент/ка във Факултет " + facNumTextbox.Text +
+            ", специалност " + specialtyTextbox.Text;
+            text += "\n";
+            return text;
         }
     }
 }

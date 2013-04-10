@@ -539,7 +539,7 @@ namespace StudentInfoSystem.Data
                 {
                     this.OnLastNameChanging(value);
                     this.SendPropertyChanging();
-                    this._LastName = value;
+                    this._MiddleName = value;
                     this.SendPropertyChanged("MiddleName");
                     this.OnLastNameChanged();
                 }
