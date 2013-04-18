@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeForm));
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.confirmBoardButton = new System.Windows.Forms.Button();
             this.boardSizeList = new System.Windows.Forms.ComboBox();
@@ -45,9 +46,9 @@
             // 
             // confirmBoardButton
             // 
-            this.confirmBoardButton.Location = new System.Drawing.Point(211, 33);
+            this.confirmBoardButton.Location = new System.Drawing.Point(211, 35);
             this.confirmBoardButton.Name = "confirmBoardButton";
-            this.confirmBoardButton.Size = new System.Drawing.Size(61, 23);
+            this.confirmBoardButton.Size = new System.Drawing.Size(61, 21);
             this.confirmBoardButton.TabIndex = 7;
             this.confirmBoardButton.Text = "OK";
             this.confirmBoardButton.UseVisualStyleBackColor = true;
@@ -55,6 +56,9 @@
             // 
             // boardSizeList
             // 
+            this.boardSizeList.AccessibleDescription = "";
+            this.boardSizeList.AccessibleName = "";
+            this.boardSizeList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boardSizeList.FormattingEnabled = true;
             this.boardSizeList.Items.AddRange(new object[] {
             "4",
@@ -84,9 +88,10 @@
             this.Controls.Add(this.boardSizeList);
             this.Controls.Add(this.boardSizeLabel);
             this.Controls.Add(this.descriptionLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "WelcomeForm";
-            this.Text = "WelcomeForm";
+            this.Text = "Queens";
             this.ResumeLayout(false);
             this.PerformLayout();
 

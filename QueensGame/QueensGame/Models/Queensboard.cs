@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace QueensGame.Models
 {
@@ -8,6 +7,8 @@ namespace QueensGame.Models
         private int size;
         private bool[,] boardPositions;
         private bool[,] queensPositions;
+        private bool[] rowsUnplayable;
+        private bool[] colsUnplayable;
         private int queensPlaced;
 
         public Queensboard(int size)
@@ -16,6 +17,8 @@ namespace QueensGame.Models
             this.queensPlaced = 0;
             this.boardPositions = new bool[size, size];
             this.queensPositions = new bool[size, size];
+            this.rowsUnplayable = new bool[size];
+            this.colsUnplayable = new bool[size];
         }
 
         public bool this[int i, int j]
@@ -29,25 +32,57 @@ namespace QueensGame.Models
             get { return (queensPlaced == size); }
         }
 
-        public bool IsPlayablePosition(int row, int col)
+        private bool HasOptionsLeft()
+        {
+            bool hasPlayableTile = false;
+
+            for (int row = 0; row < size; row++)
+            {
+                if (!rowsUnplayable[row])
+                {
+                    for (int col = 0; col < size; col++)
+                        if (!this[row, col])
+                        {
+                            hasPlayableTile = true;
+                            break; 
+                        }
+
+                    if (!hasPlayableTile) return false;
+                    hasPlayableTile = false;
+                }
+            }
+
+            for (int col = 0; col < size; col++)
+            {
+                if (!colsUnplayable[col])
+                {
+                    for (int row = 0; row < size; row++)
+                        if (!this[row, col])
+                        {
+                            hasPlayableTile = true;
+                            break;
+                        }
+
+                    if (!hasPlayableTile) return false;
+                    hasPlayableTile = false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsPlayablePosition(int row, int col)
         {
             return !this[row, col];
         }
 
-        public void OccupyPosition(int row, int col)
+        private void OccupyPosition(int row, int col)
         {
             queensPlaced++;
             this.queensPositions[row, col] = true;
             MarkPositionsAsUnplayable(row, col);
-        }
-
-        public bool HasPositionsAvailable()
-        {
-            for (int i = 0; i < size; i++)
-                for (int j = 0; j < size; j++)
-                    if (!this[i, j]) return true;
-
-            return false;
+            this.rowsUnplayable[row] = true;
+            this.colsUnplayable[col] = true;
         }
 
         private void MarkPositionsAsUnplayable(int row, int col)
@@ -82,7 +117,10 @@ namespace QueensGame.Models
                 this.OccupyPosition(row, col);
 
                 if (this.IsCompleted)
-                    result = QueensTurnOutput.GameCompleted;
+                    return QueensTurnOutput.GameCompleted;
+
+                if (!this.HasOptionsLeft())
+                    result = QueensTurnOutput.Lost;
             }
             else
             {

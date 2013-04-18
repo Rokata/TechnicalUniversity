@@ -24,6 +24,7 @@ namespace QueensGame.View
         public GameForm(int boardSize)
             : this()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.boardSize = boardSize;
             this.board = new Queensboard(boardSize);
             this.chessTiles = new ChessPanel[boardSize, boardSize];
@@ -63,7 +64,7 @@ namespace QueensGame.View
 
         }
 
-        private void chessTile_Click(object sender, EventArgs args)
+        private void chessTile_Click(object sender, EventArgs e)
         {
             var clickedPanel = sender as ChessPanel;
             int clickedRow = clickedPanel.Row;

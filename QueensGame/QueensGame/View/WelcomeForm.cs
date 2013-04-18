@@ -8,13 +8,11 @@ namespace QueensGame.View
 {
     public partial class WelcomeForm : Form
     {
-        private int[] validValues;
-
         public WelcomeForm()
         {
             InitializeComponent();
-            this.validValues = new[] { 4, 8, 16 };
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void confirmBoardButton_Click(object sender, EventArgs e)

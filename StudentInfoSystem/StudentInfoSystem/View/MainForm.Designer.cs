@@ -601,7 +601,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
