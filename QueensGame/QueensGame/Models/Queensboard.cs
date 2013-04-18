@@ -7,6 +7,7 @@ namespace QueensGame.Models
     {
         private int size;
         private bool[,] boardPositions;
+        private bool[,] queensPositions;
         private int queensPlaced;
 
         public Queensboard(int size)
@@ -14,6 +15,7 @@ namespace QueensGame.Models
             this.size = size;
             this.queensPlaced = 0;
             this.boardPositions = new bool[size, size];
+            this.queensPositions = new bool[size, size];
         }
 
         public bool this[int i, int j]
@@ -35,6 +37,7 @@ namespace QueensGame.Models
         public void OccupyPosition(int row, int col)
         {
             queensPlaced++;
+            this.queensPositions[row, col] = true;
             MarkPositionsAsUnplayable(row, col);
         }
 
@@ -49,7 +52,8 @@ namespace QueensGame.Models
 
         private void MarkPositionsAsUnplayable(int row, int col)
         {
-            for (int i = 0; i < size; i++) {             
+            for (int i = 0; i < size; i++)
+            {
                 if (!this[row, i]) this[row, i] = true;
                 if (!this[i, col]) this[i, col] = true;
             }
@@ -73,15 +77,17 @@ namespace QueensGame.Models
         {
             QueensTurnOutput result = QueensTurnOutput.Valid;
 
-            if (this.HasPositionsAvailable())
+            if (this.IsPlayablePosition(row, col))
             {
-                if (this.IsPlayablePosition(row, col))
-                {
-                    this.OccupyPosition(row, col);
+                this.OccupyPosition(row, col);
 
-                    if (this.IsCompleted)
-                        result = QueensTurnOutput.Completed;
-                }
+                if (this.IsCompleted)
+                    result = QueensTurnOutput.GameCompleted;
+            }
+            else
+            {
+                if (this.queensPositions[row, col])
+                    result = QueensTurnOutput.Invalid;
                 else
                     result = QueensTurnOutput.Lost;
             }

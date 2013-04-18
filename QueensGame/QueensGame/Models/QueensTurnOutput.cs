@@ -2,5 +2,5 @@
 
 namespace QueensGame.Models
 {
-    public enum QueensTurnOutput { Valid, Invalid, Completed, Lost };
+    public enum QueensTurnOutput { Valid, Invalid, GameCompleted, Lost };
 }

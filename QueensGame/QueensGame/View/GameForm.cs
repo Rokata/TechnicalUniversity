@@ -68,30 +68,33 @@ namespace QueensGame.View
             var clickedPanel = sender as ChessPanel;
             int clickedRow = clickedPanel.Row;
             int clickedCol = clickedPanel.Col;
-         
-            if (board.HasPositionsAvailable())
-            {
-                if (board.IsPlayablePosition(clickedRow, clickedCol))
-                {
-                    board.OccupyPosition(clickedRow, clickedCol);
-                    clickedPanel.BackgroundImage = QueenImage;
-                    infoBlock.Text = "Queen placed at row " + (clickedRow+1) + ", column " + (clickedCol+1);
-                }
-                else
-                {
-                    infoBlock.Text = "You can't place a queen here!";
-                }
 
-                if (board.IsCompleted)
-                {
+            QueensTurnOutput turnResult = board.GetOutputFromTurn(clickedRow, clickedCol);
+
+            if (turnResult == QueensTurnOutput.Valid || turnResult == QueensTurnOutput.GameCompleted ||
+                turnResult == QueensTurnOutput.Lost)
+            {
+                clickedPanel.BackgroundImage = QueenImage;
+            }
+
+            switch (turnResult)
+            {
+                case QueensTurnOutput.Valid:
+                    infoBlock.Text = "Queen placed at row " + (clickedRow + 1) + ", column " + (clickedCol + 1);
+                    break;
+                case QueensTurnOutput.Invalid:
+                    infoBlock.Text = "There is already a queen on this position!";
+                    break;
+                case QueensTurnOutput.GameCompleted:
+                    infoBlock.ForeColor = Color.Green;
                     infoBlock.Text = "Congratulations, you completed the game!";
                     DisableTiles();
-                }
-            }
-            else
-            {
-                infoBlock.Text = "You lost!";
-                DisableTiles();
+                    break;
+                case QueensTurnOutput.Lost:
+                    infoBlock.ForeColor = Color.Red;
+                    infoBlock.Text = "You lost!";
+                    DisableTiles();
+                    break;
             }
         }
 
