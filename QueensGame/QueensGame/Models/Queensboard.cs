@@ -94,17 +94,17 @@ namespace QueensGame.Models
             }
 
             // first diagonal
-            for (int i = row, j = col; (i < size && j >= 0); ++i, --j)
+            for (int i = row, j = col; (i < size && j >= 0); ++i, --j) // down
                 if (!this[i, j]) this[i, j] = true;
 
-            for (int i = row, j = col; (i >= 0 && j < size); --i, ++j)
+            for (int i = row, j = col; (i >= 0 && j < size); --i, ++j) // up
                 if (!this[i, j]) this[i, j] = true;
 
             // second diagonal
-            for (int i = row, j = col; (i < size && j < size); ++i, ++j)
+            for (int i = row, j = col; (i < size && j < size); ++i, ++j) // down
                 if (!this[i, j]) this[i, j] = true;
 
-            for (int i = row, j = col; (i >= 0 && j >= 0); --i, --j)
+            for (int i = row, j = col; (i >= 0 && j >= 0); --i, --j) // up
                 if (!this[i, j]) this[i, j] = true;
         }
 

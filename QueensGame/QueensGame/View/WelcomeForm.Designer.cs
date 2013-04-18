@@ -61,7 +61,6 @@
             this.boardSizeList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boardSizeList.FormattingEnabled = true;
             this.boardSizeList.Items.AddRange(new object[] {
-            "4",
             "8",
             "10",
             "16"});

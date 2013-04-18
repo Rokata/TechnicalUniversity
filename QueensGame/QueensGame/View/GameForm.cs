@@ -60,8 +60,6 @@ namespace QueensGame.View
                     else
                         newPanel.BackColor = (j % 2 != 0) ? secondColor : firstColor;
                 }
-
-
         }
 
         private void chessTile_Click(object sender, EventArgs e)
@@ -84,7 +82,7 @@ namespace QueensGame.View
                     SetInfoBlockMessage("Queen placed at row " + (clickedRow + 1) + ", column " + (clickedCol + 1), Color.Black);
                     break;
                 case QueensTurnOutput.Invalid:
-                    SetInfoBlockMessage("There is already a queen on this position!", Color.Black);
+                    SetInfoBlockMessage("There is already a queen on this position!", Color.Brown);
                     break;
                 case QueensTurnOutput.GameCompleted:
                     SetInfoBlockMessage("Congratulations, you completed the game!", Color.Green);
