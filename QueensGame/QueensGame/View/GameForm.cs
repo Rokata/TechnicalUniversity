@@ -80,22 +80,26 @@ namespace QueensGame.View
             switch (turnResult)
             {
                 case QueensTurnOutput.Valid:
-                    infoBlock.Text = "Queen placed at row " + (clickedRow + 1) + ", column " + (clickedCol + 1);
+                    SetInfoBlockMessage("Queen placed at row " + (clickedRow + 1) + ", column " + (clickedCol + 1), Color.Black);
                     break;
                 case QueensTurnOutput.Invalid:
-                    infoBlock.Text = "There is already a queen on this position!";
+                    SetInfoBlockMessage("There is already a queen on this position!", Color.Black);
                     break;
                 case QueensTurnOutput.GameCompleted:
-                    infoBlock.ForeColor = Color.Green;
-                    infoBlock.Text = "Congratulations, you completed the game!";
+                    SetInfoBlockMessage("Congratulations, you completed the game!", Color.Green);
                     DisableTiles();
                     break;
                 case QueensTurnOutput.Lost:
-                    infoBlock.ForeColor = Color.Red;
-                    infoBlock.Text = "You lost!";
+                    SetInfoBlockMessage("You lost!", Color.Red);
                     DisableTiles();
                     break;
             }
+        }
+
+        private void SetInfoBlockMessage(string message, Color foreColor)
+        {
+            infoBlock.ForeColor = foreColor;
+            infoBlock.Text = message; 
         }
 
         private void DisableTiles()
