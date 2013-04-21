@@ -133,8 +133,9 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,103,0,0" Name="quantityLabel" Text="Quantity:" VerticalAlignment="Top" />
             <TextBox Height="72" HorizontalAlignment="Left" Margin="138,85,0,0" Name="quantityTextBox" VerticalAlignment="Top" Width="312" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,204,0,0" Name="colorPickerLabel" Text="Pick color for the data item:" VerticalAlignment="Top" />
-            <Button Content="Add Item" Height="72" HorizontalAlignment="Left" Margin="138,318,0,0" Name="itemAddBtn" VerticalAlignment="Top" Width="160" Click="itemAddBtn_Click" />
-            <Button Content="Generate" Height="72" HorizontalAlignment="Left" Margin="138,0,0,165" Name="barGeneratorBtn" VerticalAlignment="Bottom" Width="160" />
+            <Button Content="Add Item" Height="72" HorizontalAlignment="Left" Margin="38,318,0,0" Name="itemAddBtn" VerticalAlignment="Top" Width="160" Click="itemAddBtn_Click" />
+            <Button Content="Generate" Height="72" HorizontalAlignment="Left" Margin="278,0,0,28" Name="barGeneratorBtn" VerticalAlignment="Bottom" Width="160" Click="barGeneratorBtn_Click" />
+            <Button Content="Reset bar" Height="72" HorizontalAlignment="Left" Margin="220,318,0,0" Name="resetBarBtn" VerticalAlignment="Top" Width="160" Click="resetBarBtn_Click" />
         </Grid>
     </Grid>
 

@@ -18,17 +18,17 @@ namespace PickerBoxTestClient
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        PickerBoxDialog dialog;
+        private PickerBoxDialog dialog;
         private int selectedIndex;
-        PickerBoxDialog customDialog;
-        DialogViewModel viewModel;
-        ColorItem currentColorItem;
-        private Bar bar;
+        private PickerBoxDialog customDialog;
+        private DialogViewModel viewModel;
+        private ColorItem currentColorItem;
+        public static Bar bar;
 
         // Constructor
         public MainPage()
         {
-            this.bar = new Bar();
+            bar = new Bar();
             InitializeComponent();
             TiltEffect.SetIsTiltEnabled(this, true);
             InitPickerBoxDialog();
@@ -109,6 +109,17 @@ namespace PickerBoxTestClient
                 bar.AddItem(newItem);
                 MessageBox.Show("Item added to the bar!");
             }
+        }
+
+        private void barGeneratorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/BarPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void resetBarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.bar = new Bar();
+            MessageBox.Show("All items were removed.");
         }
     }
 }

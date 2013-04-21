@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Net;
-using System.Windows;
 using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 
 namespace PickerBoxTestClient.Models
 {
@@ -18,6 +10,16 @@ namespace PickerBoxTestClient.Models
         private List<SolidColorBrush> itemsColors;
         private List<string> itemsNames;
         private double totalQuantity;
+
+        public List<BarItem> Items
+        {
+            get { return this.items; }
+        }
+
+        public double TotalQuantity
+        {
+            get { return this.totalQuantity; }
+        }
 
         public Bar()
         {
@@ -46,6 +48,11 @@ namespace PickerBoxTestClient.Models
         private void UpdateTotalQuantity(double quantity)
         {
             totalQuantity += quantity;
+        }
+
+        public double GetItemShare(BarItem item)
+        {
+            return Math.Round((item.Quantity / totalQuantity), 4);
         }
     }
 }
