@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Data;
 
-namespace PickerBoxTestClient
+namespace BarDiagram
 {
     public class ColorToBrushConverter : IValueConverter
     {

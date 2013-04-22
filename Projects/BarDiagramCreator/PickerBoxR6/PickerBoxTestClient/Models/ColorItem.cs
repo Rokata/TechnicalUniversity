@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace PickerBoxTestClient
+namespace BarDiagram
 {
     public class ColorItem
     {

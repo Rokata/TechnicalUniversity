@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Phone.Controls;
 using Microsoft.Unsupported;
-using PickerBoxTestClient.Models;
+using BarDiagram.Models;
 
-namespace PickerBoxTestClient
+namespace BarDiagram 
 {
     public partial class MainPage : PhoneApplicationPage
     {
@@ -113,12 +107,19 @@ namespace PickerBoxTestClient
 
         private void barGeneratorBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/BarPage.xaml", UriKind.RelativeOrAbsolute));
+            if (bar.ItemsCount < 1)
+            {
+                MessageBox.Show("Bar is empty!");
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/BarPage.xaml", UriKind.RelativeOrAbsolute));
+            }
         }
 
         private void resetBarBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainPage.bar = new Bar();
+            bar.Clear();
             MessageBox.Show("All items were removed.");
         }
     }

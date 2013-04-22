@@ -1,28 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-using PickerBoxTestClient.Models;
+using BarDiagram.Models;
 
-namespace PickerBoxTestClient
+namespace BarDiagram
 {
     public partial class BarPage : PhoneApplicationPage
     {
-        private int offset;
+        private static int offset;
+        private const int LegendSize = 25;
 
         public BarPage()
         {
             offset = 0;
             InitializeComponent();
             GenerateDiagram();
+            VisualizeLegend(MainPage.bar.Items.Count);
         }
 
         private void GenerateDiagram()
@@ -47,6 +42,39 @@ namespace PickerBoxTestClient
 
                 offset++;
             }
+        }
+
+        private void VisualizeLegend(int itemsCount)
+        {
+            double currentLength = BarItem.Height * (offset + 1);
+
+            for (int i = 0; i < itemsCount; i++)
+            {
+                double currentMarginTop = currentLength + i * (LegendSize + 15);
+
+                ContentPanel.Children.Add(new Rectangle()
+                {
+                    Width = LegendSize,
+                    Height = LegendSize,
+                    Fill = MainPage.bar.Items[i].Color,
+                    Margin = new Thickness(0, currentMarginTop, 0, 0),
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left
+                });
+
+                ContentPanel.Children.Add(new TextBlock()
+                {
+                    Text = MainPage.bar.Items[i].Name,
+                    Margin = new Thickness(2 * LegendSize, currentMarginTop - 10, 0, 0),
+                    VerticalAlignment = VerticalAlignment.Top,
+                    FontSize = 30
+                });
+            }
+        }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

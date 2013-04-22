@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 
-namespace PickerBoxTestClient.Models
+namespace BarDiagram.Models
 {
     public class BarItem
     {

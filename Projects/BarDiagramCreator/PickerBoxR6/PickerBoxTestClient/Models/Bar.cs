@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Media;
 
-namespace PickerBoxTestClient.Models
+namespace BarDiagram.Models
 {
     public class Bar
     {
@@ -19,6 +19,11 @@ namespace PickerBoxTestClient.Models
         public double TotalQuantity
         {
             get { return this.totalQuantity; }
+        }
+
+        public int ItemsCount
+        {
+            get { return this.items.Count; }
         }
 
         public Bar()
@@ -53,6 +58,14 @@ namespace PickerBoxTestClient.Models
         public double GetItemShare(BarItem item)
         {
             return Math.Round((item.Quantity / totalQuantity), 4);
+        }
+
+        public void Clear()
+        {
+            items.Clear();
+            itemsColors.Clear();
+            itemsNames.Clear();
+            totalQuantity = 0;
         }
     }
 }

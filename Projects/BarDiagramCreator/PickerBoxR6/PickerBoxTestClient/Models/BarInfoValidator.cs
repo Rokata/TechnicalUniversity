@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PickerBoxTestClient.Models
+namespace BarDiagram.Models
 {
     public static class BarInfoValidator
     {
