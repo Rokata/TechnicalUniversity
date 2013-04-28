@@ -22,6 +22,21 @@
       <Column Name="Course" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="Potok" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="[Group]" Member="Group" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.AddNewStudent" Method="AddNewStudent">
+    <Parameter Name="fName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="sName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="lName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="faculty" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="specialty" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OKS" Parameter="oKS" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="StudentStat" Parameter="studentStat" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="fak" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Course" Parameter="course" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Potok" Parameter="potok" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="Group" Parameter="group" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

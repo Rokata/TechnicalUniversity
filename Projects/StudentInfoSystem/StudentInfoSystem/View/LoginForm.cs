@@ -27,7 +27,7 @@ namespace StudentInfoSystem.View
 
             LoginValidation lv = new LoginValidation(usernameTextBox.Text, passwordTextBox.Text);
             User user;
-            
+
             if (lv.ValidateUserInput(out user))
             {
                 this.user = user;
@@ -39,6 +39,5 @@ namespace StudentInfoSystem.View
                 MessageBox.Show(lv.errText);
             }
         }
-
     }
 }

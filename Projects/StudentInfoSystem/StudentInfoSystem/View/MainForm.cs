@@ -81,16 +81,22 @@ namespace StudentInfoSystem.View
             if (form.ShowDialog() == DialogResult.OK)
             {
                 EnableAllControls();
+
+                if (UserData.HasAdminRights(form.user.Username))
+                {
+                    status = UserStatus.ADMIN;
+                    addStudentBtn.Visible = true;
+                    return;
+                }
+
                 Student result = UserData.GetStudentDataByUser(form.user.FacNumber);
 
-                if (result != null) 
+                if (result != null)
+                {
                     ShowStudentInfo(result);
-                else 
-                    MessageBox.Show("No student found!");
-
-                status = UserStatus.STUDENT;
+                    status = UserStatus.STUDENT;
+                }    
             }
-
         }
 
         private void Logout()
@@ -106,7 +112,6 @@ namespace StudentInfoSystem.View
             {
                 case UserStatus.ANONYMOUS:
                     {
-                        status = UserStatus.STUDENT;
                         Login();
                         break;
                     }
@@ -117,6 +122,8 @@ namespace StudentInfoSystem.View
                         break;
                     }
                 case UserStatus.ADMIN:
+                    status = UserStatus.ANONYMOUS;
+                    Logout();
                     break;
                 default:
                     break;
@@ -152,6 +159,36 @@ namespace StudentInfoSystem.View
             ", специалност " + specialtyTextbox.Text;
             text += "\n";
             return text;
+        }
+
+        private void addStudentBtn_Click(object sender, EventArgs e)
+        {
+            if (UserData.InsertStudent(new Student() {
+                FirstName = "Test",
+                LastName = "Testov",
+                Faculty = "FKSU",
+                Specialty = "KST",
+                OKS = 2,
+                StudentStatus = 1,
+                FacNumber = "348234",
+                Course = 3,
+                Potok = "9",
+                Group = 23,
+                MiddleName = "Testov"
+            }))
+            {
+                MessageBox.Show("Student added!");
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GroupsForm form = new GroupsForm();
+            form.Show();
         }
     }
 }

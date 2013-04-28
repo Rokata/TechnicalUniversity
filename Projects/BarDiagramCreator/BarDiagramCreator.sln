@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010 Express for Windows Phone
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone.Controls", "PickerBoxR6\Phone.Controls\Phone.Controls.csproj", "{6CCB5E30-E5CE-49DB-B953-9D7A6886F2C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone.Controls", "BarDiagramCreator\Phone.Controls\Phone.Controls.csproj", "{6CCB5E30-E5CE-49DB-B953-9D7A6886F2C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDiagram", "PickerBoxR6\PickerBoxTestClient\BarDiagram.csproj", "{10E18739-E0AB-405D-88B4-8879408C8724}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDiagram", "BarDiagramCreator\BarDiagram\BarDiagram.csproj", "{10E18739-E0AB-405D-88B4-8879408C8724}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

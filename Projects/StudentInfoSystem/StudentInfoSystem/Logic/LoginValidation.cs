@@ -64,5 +64,15 @@ namespace StudentInfoSystem.Logic
             }
             return (validUsername && validPassword);
         }
+
+        public bool HasAdminRights(string username)
+        {
+            if (UserData.IsUsernameTaken(username))
+            {
+                return UserData.HasAdminRights(username);
+            }
+
+            return false;
+        }
     }
 }

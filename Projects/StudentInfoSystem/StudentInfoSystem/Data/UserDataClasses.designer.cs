@@ -83,6 +83,13 @@ namespace StudentInfoSystem.Data
 				return this.GetTable<Student>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddNewStudent")]
+		public int AddNewStudent([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string fName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string sName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string lName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] string faculty, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string specialty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OKS", DbType="SmallInt")] System.Nullable<short> oKS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentStat", DbType="SmallInt")] System.Nullable<short> studentStat, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fak, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Course", DbType="SmallInt")] System.Nullable<short> course, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Potok", DbType="NVarChar(5)")] string potok, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Group", DbType="Int")] System.Nullable<int> group)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fName, sName, lName, faculty, specialty, oKS, studentStat, fak, course, potok, group);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
@@ -252,8 +259,6 @@ namespace StudentInfoSystem.Data
 		private int _ID;
 		
 		private string _FirstName;
-
-        private string _MiddleName;
 		
 		private string _LastName;
 		
@@ -272,6 +277,8 @@ namespace StudentInfoSystem.Data
 		private string _Potok;
 		
 		private int _Group;
+		
+		private string _MiddleName;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -299,6 +306,8 @@ namespace StudentInfoSystem.Data
     partial void OnPotokChanged();
     partial void OnGroupChanging(int value);
     partial void OnGroupChanged();
+    partial void OnMiddleNameChanging(string value);
+    partial void OnMiddleNameChanged();
     #endregion
 		
 		public Student()
@@ -525,26 +534,26 @@ namespace StudentInfoSystem.Data
 				}
 			}
 		}
-
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MiddleName", DbType = "NVarChar(20) NULL", CanBeNull = true)]
-        public string MiddleName
-        {
-            get
-            {
-                return this._MiddleName;
-            }
-            set
-            {
-                if ((this._MiddleName != value))
-                {
-                    this.OnLastNameChanging(value);
-                    this.SendPropertyChanging();
-                    this._MiddleName = value;
-                    this.SendPropertyChanged("MiddleName");
-                    this.OnLastNameChanged();
-                }
-            }
-        }
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddleName", DbType="NVarChar(20)")]
+		public string MiddleName
+		{
+			get
+			{
+				return this._MiddleName;
+			}
+			set
+			{
+				if ((this._MiddleName != value))
+				{
+					this.OnMiddleNameChanging(value);
+					this.SendPropertyChanging();
+					this._MiddleName = value;
+					this.SendPropertyChanged("MiddleName");
+					this.OnMiddleNameChanged();
+				}
+			}
+		}
 		
 		public event PropertyChangingEventHandler PropertyChanging;
 		

@@ -38,6 +38,9 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.addStudentBtn = new System.Windows.Forms.Button();
+            this.btnVisualOptions = new System.Windows.Forms.Button();
+            this.pictureButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.studentInfoGroupbox = new System.Windows.Forms.GroupBox();
             this.groupNumTextbox = new System.Windows.Forms.TextBox();
@@ -79,8 +82,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.openPictureDialog = new System.Windows.Forms.OpenFileDialog();
-            this.pictureButton = new System.Windows.Forms.Button();
-            this.btnVisualOptions = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -159,6 +161,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.addStudentBtn);
             this.tabPage1.Controls.Add(this.btnVisualOptions);
             this.tabPage1.Controls.Add(this.pictureButton);
             this.tabPage1.Controls.Add(this.label6);
@@ -175,6 +179,37 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Студент";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // addStudentBtn
+            // 
+            this.addStudentBtn.Location = new System.Drawing.Point(24, 391);
+            this.addStudentBtn.Name = "addStudentBtn";
+            this.addStudentBtn.Size = new System.Drawing.Size(109, 23);
+            this.addStudentBtn.TabIndex = 10;
+            this.addStudentBtn.Text = "Add Student";
+            this.addStudentBtn.UseVisualStyleBackColor = true;
+            this.addStudentBtn.Visible = false;
+            this.addStudentBtn.Click += new System.EventHandler(this.addStudentBtn_Click);
+            // 
+            // btnVisualOptions
+            // 
+            this.btnVisualOptions.Location = new System.Drawing.Point(24, 431);
+            this.btnVisualOptions.Name = "btnVisualOptions";
+            this.btnVisualOptions.Size = new System.Drawing.Size(109, 23);
+            this.btnVisualOptions.TabIndex = 9;
+            this.btnVisualOptions.Text = "Visual Options...";
+            this.btnVisualOptions.UseVisualStyleBackColor = true;
+            this.btnVisualOptions.Click += new System.EventHandler(this.btnVisualOptions_Click);
+            // 
+            // pictureButton
+            // 
+            this.pictureButton.Location = new System.Drawing.Point(42, 190);
+            this.pictureButton.Name = "pictureButton";
+            this.pictureButton.Size = new System.Drawing.Size(75, 23);
+            this.pictureButton.TabIndex = 8;
+            this.pictureButton.Text = "Upload...";
+            this.pictureButton.UseVisualStyleBackColor = true;
+            this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
             // 
             // label6
             // 
@@ -554,25 +589,15 @@
             this.openPictureDialog.FileName = "openFileDialog1";
             this.openPictureDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
             // 
-            // pictureButton
+            // button1
             // 
-            this.pictureButton.Location = new System.Drawing.Point(42, 190);
-            this.pictureButton.Name = "pictureButton";
-            this.pictureButton.Size = new System.Drawing.Size(75, 23);
-            this.pictureButton.TabIndex = 8;
-            this.pictureButton.Text = "Upload...";
-            this.pictureButton.UseVisualStyleBackColor = true;
-            this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
-            // 
-            // btnVisualOptions
-            // 
-            this.btnVisualOptions.Location = new System.Drawing.Point(24, 431);
-            this.btnVisualOptions.Name = "btnVisualOptions";
-            this.btnVisualOptions.Size = new System.Drawing.Size(109, 23);
-            this.btnVisualOptions.TabIndex = 9;
-            this.btnVisualOptions.Text = "Visual Options...";
-            this.btnVisualOptions.UseVisualStyleBackColor = true;
-            this.btnVisualOptions.Click += new System.EventHandler(this.btnVisualOptions_Click);
+            this.button1.Location = new System.Drawing.Point(24, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "View";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -601,6 +626,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -657,5 +683,7 @@
         private System.Windows.Forms.OpenFileDialog openPictureDialog;
         private System.Windows.Forms.Button pictureButton;
         private System.Windows.Forms.Button btnVisualOptions;
+        private System.Windows.Forms.Button addStudentBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
