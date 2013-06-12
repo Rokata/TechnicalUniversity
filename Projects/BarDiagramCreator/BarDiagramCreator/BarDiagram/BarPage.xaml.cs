@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using BarDiagram.Models;
+using System.Windows.Media;
 
 namespace BarDiagram
 {
